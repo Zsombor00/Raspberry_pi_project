@@ -1,0 +1,62 @@
+\doxysection{Audio\+Recorder.\+hpp}
+\hypertarget{AudioRecorder_8hpp_source}{}\label{AudioRecorder_8hpp_source}\index{includes/AudioRecorder.hpp@{includes/AudioRecorder.hpp}}
+\mbox{\hyperlink{AudioRecorder_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ AUDIORECORDER\_HPP}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ AUDIORECORDER\_HPP}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}libraries.hpp"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classAudioRecorder}{AudioRecorder}}}
+\DoxyCodeLine{00017\ \{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classAudioRecorder}{AudioRecorder}}(\textcolor{keywordtype}{int}\ =\ DEFAULT\_SAMPLE\_RATE,\ \textcolor{keywordtype}{int}\ =\ DEFAULT\_NUM\_CHANNELS,\ \textcolor{keywordtype}{int}\ =\ DEFAULT\_FRAMES\_PER\_BUFFER);}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{classAudioRecorder}{AudioRecorder}}(\mbox{\hyperlink{classAudioRecorder}{AudioRecorder}}\ \textcolor{keyword}{const}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{classAudioRecorder}{AudioRecorder}}(\mbox{\hyperlink{classAudioRecorder}{AudioRecorder}}\ \&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{classAudioRecorder}{AudioRecorder}}\ \&\ operator=(\mbox{\hyperlink{classAudioRecorder}{AudioRecorder}}\ \textcolor{keyword}{const}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{classAudioRecorder}{AudioRecorder}}\ \&\ operator=(\mbox{\hyperlink{classAudioRecorder}{AudioRecorder}}\ \&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{classAudioRecorder_ad5a2d69da1c068d8aab68365e5b9208a}{\string~AudioRecorder}}();}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classAudioRecorder_a6b227538e834634146d877a937940e81}{startRecording}}();}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classAudioRecorder_a51832d8932daa76e8b742606106f5872}{stopRecording}}();}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classAudioRecorder_a942b76365f1bfec26e5e2642939320c1}{save}}(std::string\ \textcolor{keyword}{const}\&)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{comment}{//\ Default\ settings\ for\ the\ audio\ capture}}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ DEFAULT\_SAMPLE\_RATE\ =\ 44100;}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ DEFAULT\_NUM\_CHANNELS\ =\ 1;}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ DEFAULT\_FRAMES\_PER\_BUFFER\ =\ 512;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{enum\ class}\ State\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ Idle,}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ Recording}
+\DoxyCodeLine{00039\ \ \ \ \ \};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{enum\ class}\ FileFormat\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ UNKNOWN,}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ WAV,}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ FLAC,}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ OGG,}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ MP3}
+\DoxyCodeLine{00047\ \ \ \ \ \};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{bool}\ isRecording()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ recordingLoop();}
+\DoxyCodeLine{00051\ \ \ \ \ [[nodiscard]]\ FileFormat\ determineFileFormat(std::string\ \textcolor{keyword}{const}\&)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ saveAsWavFlacOgg(std::string\ \textcolor{keyword}{const}\&,\ FileFormat)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ saveAsMp3(std::string\ \textcolor{keyword}{const}\&)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{int}\ m\_sampleRate;}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{int}\ m\_numChannels;}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{int}\ m\_framesPerBuffer;}
+\DoxyCodeLine{00058\ \ \ \ \ PaStream\ *m\_stream;}
+\DoxyCodeLine{00059\ \ \ \ \ State\ m\_state;}
+\DoxyCodeLine{00060\ \ \ \ \ std::vector<short>\ m\_samples;}
+\DoxyCodeLine{00061\ \ \ \ \ std::jthread\ m\_recordingThread;}
+\DoxyCodeLine{00062\ \};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

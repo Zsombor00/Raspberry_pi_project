@@ -1,0 +1,110 @@
+\doxysection{Audio\+Recorder Class Reference}
+\hypertarget{classAudioRecorder}{}\label{classAudioRecorder}\index{AudioRecorder@{AudioRecorder}}
+
+
+Handles audio recording using the Port\+Audio library.  
+
+
+
+
+{\ttfamily \#include $<$Audio\+Recorder.\+hpp$>$}
+
+
+
+Collaboration diagram for Audio\+Recorder\+:
+% FIG 0
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classAudioRecorder_ac015dceead7e340f7ffca71ffa46da18}{Audio\+Recorder}} (int=DEFAULT\+\_\+\+SAMPLE\+\_\+\+RATE, int=DEFAULT\+\_\+\+NUM\+\_\+\+CHANNELS, int=DEFAULT\+\_\+\+FRAMES\+\_\+\+PER\+\_\+\+BUFFER)
+\begin{DoxyCompactList}\small\item\em Constructs an \doxylink{classAudioRecorder}{Audio\+Recorder}. \end{DoxyCompactList}\item 
+\Hypertarget{classAudioRecorder_abb7c7c31fd86038aed21f794fc836b1d}\label{classAudioRecorder_abb7c7c31fd86038aed21f794fc836b1d} 
+{\bfseries Audio\+Recorder} (\mbox{\hyperlink{classAudioRecorder}{Audio\+Recorder}} const \&)=delete
+\item 
+\Hypertarget{classAudioRecorder_ac0e0d09954f4e81a67fcd17d0338c6f1}\label{classAudioRecorder_ac0e0d09954f4e81a67fcd17d0338c6f1} 
+{\bfseries Audio\+Recorder} (\mbox{\hyperlink{classAudioRecorder}{Audio\+Recorder}} \&\&)=delete
+\item 
+\Hypertarget{classAudioRecorder_aeadf9d4e05ce1c848c0f348fe1ad8a42}\label{classAudioRecorder_aeadf9d4e05ce1c848c0f348fe1ad8a42} 
+\mbox{\hyperlink{classAudioRecorder}{Audio\+Recorder}} \& {\bfseries operator=} (\mbox{\hyperlink{classAudioRecorder}{Audio\+Recorder}} const \&)=delete
+\item 
+\Hypertarget{classAudioRecorder_aa04785cf1eff8f067105db6a5d4c04f1}\label{classAudioRecorder_aa04785cf1eff8f067105db6a5d4c04f1} 
+\mbox{\hyperlink{classAudioRecorder}{Audio\+Recorder}} \& {\bfseries operator=} (\mbox{\hyperlink{classAudioRecorder}{Audio\+Recorder}} \&\&)=delete
+\item 
+\Hypertarget{classAudioRecorder_ad5a2d69da1c068d8aab68365e5b9208a}\label{classAudioRecorder_ad5a2d69da1c068d8aab68365e5b9208a} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Audio\+Recorder} ()
+\begin{DoxyCompactList}\small\item\em Destructs the \doxylink{classAudioRecorder}{Audio\+Recorder}, ensuring recording is stopped. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAudioRecorder_a6b227538e834634146d877a937940e81}{start\+Recording}} ()
+\begin{DoxyCompactList}\small\item\em Starts recording audio. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAudioRecorder_a51832d8932daa76e8b742606106f5872}{stop\+Recording}} ()
+\begin{DoxyCompactList}\small\item\em Stops recording audio. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAudioRecorder_a942b76365f1bfec26e5e2642939320c1}{save}} (std\+::string const \&) const
+\begin{DoxyCompactList}\small\item\em Saves the recorded audio to a file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Handles audio recording using the Port\+Audio library. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classAudioRecorder_ac015dceead7e340f7ffca71ffa46da18}\label{classAudioRecorder_ac015dceead7e340f7ffca71ffa46da18} 
+\index{AudioRecorder@{AudioRecorder}!AudioRecorder@{AudioRecorder}}
+\index{AudioRecorder@{AudioRecorder}!AudioRecorder@{AudioRecorder}}
+\doxysubsubsection{\texorpdfstring{AudioRecorder()}{AudioRecorder()}}
+{\footnotesize\ttfamily Audio\+Recorder\+::\+Audio\+Recorder (\begin{DoxyParamCaption}\item[{int}]{sample\+Rate = {\ttfamily DEFAULT\+\_\+SAMPLE\+\_\+RATE},  }\item[{int}]{num\+Channels = {\ttfamily DEFAULT\+\_\+NUM\+\_\+CHANNELS},  }\item[{int}]{frames\+Per\+Buffer = {\ttfamily DEFAULT\+\_\+FRAMES\+\_\+PER\+\_\+BUFFER} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructs an \doxylink{classAudioRecorder}{Audio\+Recorder}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sample\+Rate} & The sample rate in Hertz. \\
+\hline
+{\em num\+Channels} & The number of audio channels. \\
+\hline
+{\em frames\+Per\+Buffer} & The number of frames per buffer. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classAudioRecorder_a942b76365f1bfec26e5e2642939320c1}\label{classAudioRecorder_a942b76365f1bfec26e5e2642939320c1} 
+\index{AudioRecorder@{AudioRecorder}!save@{save}}
+\index{save@{save}!AudioRecorder@{AudioRecorder}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}}
+{\footnotesize\ttfamily void Audio\+Recorder\+::save (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{file\+Name }\end{DoxyParamCaption}) const}
+
+
+
+Saves the recorded audio to a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & The name of the file to save the audio to. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classAudioRecorder_a6b227538e834634146d877a937940e81}\label{classAudioRecorder_a6b227538e834634146d877a937940e81} 
+\index{AudioRecorder@{AudioRecorder}!startRecording@{startRecording}}
+\index{startRecording@{startRecording}!AudioRecorder@{AudioRecorder}}
+\doxysubsubsection{\texorpdfstring{startRecording()}{startRecording()}}
+{\footnotesize\ttfamily void Audio\+Recorder\+::start\+Recording (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Starts recording audio. 
+
+If already recording, this function returns early. Otherwise, it initializes the audio stream and spawns the recording thread. \Hypertarget{classAudioRecorder_a51832d8932daa76e8b742606106f5872}\label{classAudioRecorder_a51832d8932daa76e8b742606106f5872} 
+\index{AudioRecorder@{AudioRecorder}!stopRecording@{stopRecording}}
+\index{stopRecording@{stopRecording}!AudioRecorder@{AudioRecorder}}
+\doxysubsubsection{\texorpdfstring{stopRecording()}{stopRecording()}}
+{\footnotesize\ttfamily void Audio\+Recorder\+::stop\+Recording (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Stops recording audio. 
+
+If not currently recording, this function throws a runtime error. Otherwise, it stops and closes the audio stream, and joins the recording thread. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+includes/\mbox{\hyperlink{AudioRecorder_8hpp}{Audio\+Recorder.\+hpp}}\item 
+sources/\mbox{\hyperlink{AudioRecorder_8cpp}{Audio\+Recorder.\+cpp}}\end{DoxyCompactItemize}

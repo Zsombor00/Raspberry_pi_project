@@ -1,0 +1,15 @@
+\doxysection{sources/\+Audio\+APIHandler.cpp File Reference}
+\hypertarget{AudioAPIHandler_8cpp}{}\label{AudioAPIHandler_8cpp}\index{sources/AudioAPIHandler.cpp@{sources/AudioAPIHandler.cpp}}
+
+
+Implementation of the \doxylink{classAudioAPIHandler}{Audio\+APIHandler} class.  
+
+
+{\ttfamily \#include "{}Audio\+APIHandler.\+hpp"{}}\newline
+Include dependency graph for Audio\+APIHandler.\+cpp\+:
+% FIG 0
+
+
+\doxysubsection{Detailed Description}
+Implementation of the \doxylink{classAudioAPIHandler}{Audio\+APIHandler} class. 
+

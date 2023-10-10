@@ -1,0 +1,86 @@
+\doxysection{Audio\+Reader Class Reference}
+\hypertarget{classAudioReader}{}\label{classAudioReader}\index{AudioReader@{AudioReader}}
+
+
+Handles audio playing using the SDL2 library.  
+
+
+
+
+{\ttfamily \#include $<$Audio\+Reader.\+hpp$>$}
+
+
+
+Collaboration diagram for Audio\+Reader\+:
+% FIG 0
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classAudioReader_a97cf78ec0007f4738433c5a643aab91a}{Audio\+Reader}} ()
+\begin{DoxyCompactList}\small\item\em Constructs an \doxylink{classAudioReader}{Audio\+Reader}. \end{DoxyCompactList}\item 
+\Hypertarget{classAudioReader_aee492ef87efade3197d26403d070470d}\label{classAudioReader_aee492ef87efade3197d26403d070470d} 
+{\bfseries Audio\+Reader} (\mbox{\hyperlink{classAudioReader}{Audio\+Reader}} const \&)=delete
+\item 
+\Hypertarget{classAudioReader_ad2bcdb7bfcb44b78938c83b69eb70818}\label{classAudioReader_ad2bcdb7bfcb44b78938c83b69eb70818} 
+{\bfseries Audio\+Reader} (\mbox{\hyperlink{classAudioReader}{Audio\+Reader}} \&\&)=delete
+\item 
+\Hypertarget{classAudioReader_aad86ddb71032fe41059d2c3ded84a9e6}\label{classAudioReader_aad86ddb71032fe41059d2c3ded84a9e6} 
+\mbox{\hyperlink{classAudioReader}{Audio\+Reader}} \& {\bfseries operator=} (\mbox{\hyperlink{classAudioReader}{Audio\+Reader}} const \&)=delete
+\item 
+\Hypertarget{classAudioReader_a76a083cc5ce599b6a1645a8ad76f36cf}\label{classAudioReader_a76a083cc5ce599b6a1645a8ad76f36cf} 
+\mbox{\hyperlink{classAudioReader}{Audio\+Reader}} \& {\bfseries operator=} (\mbox{\hyperlink{classAudioReader}{Audio\+Reader}} \&\&)=delete
+\item 
+\mbox{\hyperlink{classAudioReader_af959722d3213817153a7b43be4719266}{\texorpdfstring{$\sim$}{\string~}\+Audio\+Reader}} ()
+\begin{DoxyCompactList}\small\item\em Destructs the \doxylink{classAudioReader}{Audio\+Reader}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAudioReader_ae35d179ccb7d29de29150a095cfc9b93}{play}} (std\+::string const \&)
+\begin{DoxyCompactList}\small\item\em Plays an audio file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Handles audio playing using the SDL2 library. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classAudioReader_a97cf78ec0007f4738433c5a643aab91a}\label{classAudioReader_a97cf78ec0007f4738433c5a643aab91a} 
+\index{AudioReader@{AudioReader}!AudioReader@{AudioReader}}
+\index{AudioReader@{AudioReader}!AudioReader@{AudioReader}}
+\doxysubsubsection{\texorpdfstring{AudioReader()}{AudioReader()}}
+{\footnotesize\ttfamily Audio\+Reader\+::\+Audio\+Reader (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructs an \doxylink{classAudioReader}{Audio\+Reader}. 
+
+Initializes SDL2 audio subsystem and SDL\+\_\+mixer library. If initialization fails, an exception is thrown. \Hypertarget{classAudioReader_af959722d3213817153a7b43be4719266}\label{classAudioReader_af959722d3213817153a7b43be4719266} 
+\index{AudioReader@{AudioReader}!````~AudioReader@{\texorpdfstring{$\sim$}{\string~}AudioReader}}
+\index{````~AudioReader@{\texorpdfstring{$\sim$}{\string~}AudioReader}!AudioReader@{AudioReader}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}AudioReader()}{\string~AudioReader()}}
+{\footnotesize\ttfamily Audio\+Reader\+::\texorpdfstring{$\sim$}{\string~}\+Audio\+Reader (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructs the \doxylink{classAudioReader}{Audio\+Reader}. 
+
+Closes the SDL\+\_\+mixer library and shuts down the SDL2 audio subsystem. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classAudioReader_ae35d179ccb7d29de29150a095cfc9b93}\label{classAudioReader_ae35d179ccb7d29de29150a095cfc9b93} 
+\index{AudioReader@{AudioReader}!play@{play}}
+\index{play@{play}!AudioReader@{AudioReader}}
+\doxysubsubsection{\texorpdfstring{play()}{play()}}
+{\footnotesize\ttfamily void Audio\+Reader\+::play (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{file\+Path }\end{DoxyParamCaption})}
+
+
+
+Plays an audio file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Path} & The path of the audio file to play.\\
+\hline
+\end{DoxyParams}
+Loads the audio file specified by file\+Path and plays it. If there is an error loading the file or playing the audio, an exception is thrown. This function blocks until the audio playback is complete. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+includes/\mbox{\hyperlink{AudioReader_8hpp}{Audio\+Reader.\+hpp}}\item 
+sources/\mbox{\hyperlink{AudioReader_8cpp}{Audio\+Reader.\+cpp}}\end{DoxyCompactItemize}
