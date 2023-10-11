@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['audioapihandler_0',['AudioAPIHandler',['../classAudioAPIHandler.html',1,'']]],
+  ['audioapihandler_0',['audioapihandler',['../classAudioAPIHandler.html',1,'AudioAPIHandler'],['../classAudioAPIHandler.html#a16d1ad500b90e31a02048b98497809e4',1,'AudioAPIHandler::AudioAPIHandler()']]],
   ['audioapihandler_2ecpp_1',['AudioAPIHandler.cpp',['../AudioAPIHandler_8cpp.html',1,'']]],
   ['audioapihandler_2ehpp_2',['AudioAPIHandler.hpp',['../AudioAPIHandler_8hpp.html',1,'']]],
   ['audioreader_3',['audioreader',['../classAudioReader.html',1,'AudioReader'],['../classAudioReader.html#a97cf78ec0007f4738433c5a643aab91a',1,'AudioReader::AudioReader()']]],

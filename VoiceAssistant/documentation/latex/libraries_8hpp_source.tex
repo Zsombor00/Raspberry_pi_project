@@ -3,19 +3,35 @@
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//\ Third-\/party\ libraries\ headers}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <lame/lame.h>}}
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <portaudio.h>}}
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <SDL2/SDL.h>}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_mixer.h>}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <sndfile.h>}}
-\DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{comment}{//\ Standard\ library\ headers}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <filesystem>}}
-\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <format>}}
-\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <iostream>}}
-\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <map>}}
-\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <string>}}
-\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <thread>}}
-\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <curl/curl.h>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <lame/lame.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <portaudio.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <SDL2/SDL.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_mixer.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <sndfile.h>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ Standard\ library\ headers}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <format>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <optional>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <thread>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{comment}{//\ namespace\ std\ \{}}
+\DoxyCodeLine{00021\ \textcolor{comment}{//\ \ \ \ \ template<>}}
+\DoxyCodeLine{00022\ \textcolor{comment}{//\ \ \ \ \ struct\ formatter<std::filesystem::path>\ \{}}
+\DoxyCodeLine{00023\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ template<typename\ ParseContext>}}
+\DoxyCodeLine{00024\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ constexpr\ auto\ parse(ParseContext\&\ ctx)\ \{\ return\ ctx.begin();\ \}}}
+\DoxyCodeLine{00025\ \textcolor{comment}{//}}
+\DoxyCodeLine{00026\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ template<typename\ FormatContext>}}
+\DoxyCodeLine{00027\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ auto\ format(const\ std::filesystem::path\&\ p,\ FormatContext\&\ ctx)\ \{}}
+\DoxyCodeLine{00028\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ return\ std::formatter<std::string>().format(p.string(),\ ctx);}}
+\DoxyCodeLine{00029\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00030\ \textcolor{comment}{//\ \ \ \ \ \};}}
+\DoxyCodeLine{00031\ \textcolor{comment}{//\ \}}}
 
 \end{DoxyCode}

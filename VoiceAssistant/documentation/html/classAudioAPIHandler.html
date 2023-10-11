@@ -75,6 +75,11 @@ $(function() {
   <div class="headertitle"><div class="title">AudioAPIHandler Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Handles interaction with a remote audio API using the cURL library.  
+ <a href="classAudioAPIHandler.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="AudioAPIHandler_8hpp_source.html">AudioAPIHandler.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for AudioAPIHandler:</div>
 <div class="dyncontent">
@@ -83,6 +88,9 @@ Collaboration diagram for AudioAPIHandler:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a16d1ad500b90e31a02048b98497809e4" id="r_a16d1ad500b90e31a02048b98497809e4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioAPIHandler.html#a16d1ad500b90e31a02048b98497809e4">AudioAPIHandler</a> (std::string const &amp;)</td></tr>
+<tr class="memdesc:a16d1ad500b90e31a02048b98497809e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an <a class="el" href="classAudioAPIHandler.html" title="Handles interaction with a remote audio API using the cURL library.">AudioAPIHandler</a> with a specified API URL.  <br /></td></tr>
+<tr class="separator:a16d1ad500b90e31a02048b98497809e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a387ce95229e0874895e219436b1474e4" id="r_a387ce95229e0874895e219436b1474e4"><td class="memItemLeft" align="right" valign="top"><a id="a387ce95229e0874895e219436b1474e4" name="a387ce95229e0874895e219436b1474e4"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>AudioAPIHandler</b> (<a class="el" href="classAudioAPIHandler.html">AudioAPIHandler</a> const &amp;)=delete</td></tr>
 <tr class="separator:a387ce95229e0874895e219436b1474e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -95,7 +103,121 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af061102167aa7c7f7ee451f060357b80" id="r_af061102167aa7c7f7ee451f060357b80"><td class="memItemLeft" align="right" valign="top"><a id="af061102167aa7c7f7ee451f060357b80" name="af061102167aa7c7f7ee451f060357b80"></a>
 <a class="el" href="classAudioAPIHandler.html">AudioAPIHandler</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classAudioAPIHandler.html">AudioAPIHandler</a> &amp;&amp;)=delete</td></tr>
 <tr class="separator:af061102167aa7c7f7ee451f060357b80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d5fbe406aeba31caacb1f1dd83d03e4" id="r_a8d5fbe406aeba31caacb1f1dd83d03e4"><td class="memItemLeft" align="right" valign="top"><a id="a8d5fbe406aeba31caacb1f1dd83d03e4" name="a8d5fbe406aeba31caacb1f1dd83d03e4"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~AudioAPIHandler</b> ()</td></tr>
+<tr class="memdesc:a8d5fbe406aeba31caacb1f1dd83d03e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructs the <a class="el" href="classAudioAPIHandler.html" title="Handles interaction with a remote audio API using the cURL library.">AudioAPIHandler</a>, ensuring cURL is cleaned up. <br /></td></tr>
+<tr class="separator:a8d5fbe406aeba31caacb1f1dd83d03e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a377d1339f0ea14847f1157dfb42d55" id="r_a3a377d1339f0ea14847f1157dfb42d55"><td class="memItemLeft" align="right" valign="top">std::optional&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioAPIHandler.html#a3a377d1339f0ea14847f1157dfb42d55">uploadFile</a> (std::filesystem::path const &amp;)</td></tr>
+<tr class="memdesc:a3a377d1339f0ea14847f1157dfb42d55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uploads a file to the remote audio API.  <br /></td></tr>
+<tr class="separator:a3a377d1339f0ea14847f1157dfb42d55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af836da90db847851e94f306667dcb7bb" id="r_af836da90db847851e94f306667dcb7bb"><td class="memItemLeft" align="right" valign="top">std::optional&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioAPIHandler.html#af836da90db847851e94f306667dcb7bb">downloadFile</a> (std::string const &amp;, std::filesystem::path const &amp;)</td></tr>
+<tr class="memdesc:af836da90db847851e94f306667dcb7bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Downloads a file from the remote audio API.  <br /></td></tr>
+<tr class="separator:af836da90db847851e94f306667dcb7bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Handles interaction with a remote audio API using the cURL library. </p>
+<p>The <a class="el" href="classAudioAPIHandler.html" title="Handles interaction with a remote audio API using the cURL library.">AudioAPIHandler</a> class provides methods to upload and download audio files to and from a remote audio processing API. It utilizes the cURL library to manage HTTP requests and responses. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a16d1ad500b90e31a02048b98497809e4" name="a16d1ad500b90e31a02048b98497809e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16d1ad500b90e31a02048b98497809e4">&#9670;&#160;</a></span>AudioAPIHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">AudioAPIHandler::AudioAPIHandler </td>
+          <td>(</td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>URL</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs an <a class="el" href="classAudioAPIHandler.html" title="Handles interaction with a remote audio API using the cURL library.">AudioAPIHandler</a> with a specified API URL. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">URL</td><td>The URL of the audio API. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="af836da90db847851e94f306667dcb7bb" name="af836da90db847851e94f306667dcb7bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af836da90db847851e94f306667dcb7bb">&#9670;&#160;</a></span>downloadFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::optional&lt; std::string &gt; AudioAPIHandler::downloadFile </td>
+          <td>(</td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>remotePath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::filesystem::path const &amp;&#160;</td>
+          <td class="paramname"><em>localPath</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Downloads a file from the remote audio API. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">remotePath</td><td>The remote path of the file on the audio API. </td></tr>
+    <tr><td class="paramname">localPath</td><td>The local path to save the downloaded file. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An optional error message. std::nullopt on success, error message on failure. </dd></dl>
+
+</div>
+</div>
+<a id="a3a377d1339f0ea14847f1157dfb42d55" name="a3a377d1339f0ea14847f1157dfb42d55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a377d1339f0ea14847f1157dfb42d55">&#9670;&#160;</a></span>uploadFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::optional&lt; std::string &gt; AudioAPIHandler::uploadFile </td>
+          <td>(</td>
+          <td class="paramtype">std::filesystem::path const &amp;&#160;</td>
+          <td class="paramname"><em>filePath</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Uploads a file to the remote audio API. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filePath</td><td>The path of the file to upload. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An optional error message. std::nullopt on success, error message on failure. </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>includes/<a class="el" href="AudioAPIHandler_8hpp_source.html">AudioAPIHandler.hpp</a></li>
 <li>sources/<a class="el" href="AudioAPIHandler_8cpp.html">AudioAPIHandler.cpp</a></li>

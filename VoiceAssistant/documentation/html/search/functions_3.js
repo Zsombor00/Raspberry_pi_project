@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['_7eaudioreader_0',['~AudioReader',['../classAudioReader.html#af959722d3213817153a7b43be4719266',1,'AudioReader']]],
-  ['_7eaudiorecorder_1',['~AudioRecorder',['../classAudioRecorder.html#ad5a2d69da1c068d8aab68365e5b9208a',1,'AudioRecorder']]]
+  ['save_0',['save',['../classAudioRecorder.html#a00873a1b7f1d757cefa506619d2c63df',1,'AudioRecorder']]],
+  ['startrecording_1',['startRecording',['../classAudioRecorder.html#a6b227538e834634146d877a937940e81',1,'AudioRecorder']]],
+  ['stoprecording_2',['stopRecording',['../classAudioRecorder.html#a51832d8932daa76e8b742606106f5872',1,'AudioRecorder']]]
 ];
