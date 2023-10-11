@@ -1,6 +1,6 @@
 /*!
  * \file AudioReader.hpp
- * \brief Header file for the AudioReader class.
+ * \brief Declaration of the AudioReader class.
  */
 
 #ifndef AUDIOREADER_HPP
@@ -23,7 +23,7 @@ public:
     AudioReader & operator=(AudioReader &&) = delete;
     ~AudioReader();
 
-    void play(std::string const&);
+    void play(std::filesystem::path const&);
 
 private:
     struct MixMusicDeleter {
@@ -31,7 +31,6 @@ private:
     };
 
     using MixMusicPtr = std::unique_ptr<Mix_Music, MixMusicDeleter>;
-
 };
 
 #endif

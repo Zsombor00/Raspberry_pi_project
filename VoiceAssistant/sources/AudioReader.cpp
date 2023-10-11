@@ -11,9 +11,10 @@
  * Initializes SDL2 audio subsystem and SDL_mixer library.
  * If initialization fails, an exception is thrown.
  */
-AudioReader::AudioReader() {
+AudioReader::AudioReader()
+{
     if (SDL_Init(SDL_INIT_AUDIO) != 0) {
-        throw std::runtime_error("SDL2 error: " + std::string(SDL_GetError()));
+        throw std::runtime_error(std::format("SDL2 error: {}", SDL_GetError()));
     }
 
     if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) {
@@ -27,7 +28,8 @@ AudioReader::AudioReader() {
  *
  * Closes the SDL_mixer library and shuts down the SDL2 audio subsystem.
  */
-AudioReader::~AudioReader() {
+AudioReader::~AudioReader()
+{
     Mix_Quit();
     SDL_Quit();
 }
@@ -40,7 +42,8 @@ AudioReader::~AudioReader() {
  * If there is an error loading the file or playing the audio, an exception is thrown.
  * This function blocks until the audio playback is complete.
  */
-void AudioReader::play(std::string const& filePath) {
+void AudioReader::play(std::filesystem::path const& filePath)
+{
     MixMusicPtr music(Mix_LoadMUS(filePath.c_str()));
     if (!music) {
         throw std::runtime_error(std::format("SDL_mixer error: {}", Mix_GetError()));
