@@ -24,10 +24,8 @@ void interactWithUser(
     audioRecorder.save(inputFilePath);
 
     std::cout << "Sending " << inputFilePath << " to the API " << apiUrl << "..." << std::endl;
-    audioAPIHandler.uploadFile(inputFilePath);
-
-    std::cout << "Receiving " << outputFilePath << " from the API " << apiUrl << "..." << std::endl;
-    audioAPIHandler.downloadFile("/output." + outputFilePath.extension().string(), outputFilePath);
+    std::cout << "And saving the result to " << inputFilePath << "..." << std::endl;
+    audioAPIHandler.uploadFile(inputFilePath, outputFilePath);
 
     std::cout << "Press Enter to play " << outputFilePath << std::endl;
     std::cin.get();
@@ -38,7 +36,7 @@ int main(int argc, char *argv[]) {
     constexpr std::string_view fileFormat = "mp3";
     const std::filesystem::path inputFilePath = std::string("./resources/temp/input.") + fileFormat.data();
     const std::filesystem::path outputFilePath = std::string("./resources/temp/output.") + fileFormat.data();
-    const std::string apiUrl = "url to API";
+    const std::string apiUrl = "https://advanced-computer-sciences-proj.vercel.app/api/victor";
 
     try {
         AudioRecorder audioRecorder;

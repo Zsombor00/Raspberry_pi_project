@@ -27,13 +27,12 @@ public:
     AudioAPIHandler & operator=(AudioAPIHandler &&) = delete;
     ~AudioAPIHandler();
 
-    std::optional<std::string> uploadFile(std::filesystem::path const&);
-    std::optional<std::string> downloadFile(std::string const&, std::filesystem::path const&);
+    std::optional<std::string> uploadFile(std::filesystem::path const&, std::filesystem::path const&) const;
 
 private:
-    static size_t WriteCallback(void*, size_t, size_t, void*);
+    static size_t writeCallback(void*, size_t, size_t, void*);
 
-    std::string m_apiUrl;
+    const std::string m_apiUrl;
     CURL *m_curl;
 };
 

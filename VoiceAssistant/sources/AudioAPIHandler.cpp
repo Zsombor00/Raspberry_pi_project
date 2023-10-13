@@ -25,65 +25,62 @@ AudioAPIHandler::~AudioAPIHandler()
 {
     if (m_curl) {
         curl_easy_cleanup(m_curl);
+        curl_global_cleanup();
     }
-    curl_global_cleanup();
 }
 
 /*!
  * \brief Uploads a file to the remote audio API.
- * \param filePath The path of the file to upload.
+ * \param inputFilePath The path of the file to upload.
+ * \param outputFilePath The path of the output file.
  * \return An optional error message. std::nullopt on success, error message on failure.
  */
-std::optional<std::string> AudioAPIHandler::uploadFile(std::filesystem::path const& filePath)
+std::optional<std::string> AudioAPIHandler::uploadFile(
+    std::filesystem::path const& inputFilePath,
+    std::filesystem::path const& outputFilePath
+) const
 {
     if (!m_curl) {
         return "cURL not initialized";
     }
 
-    curl_mime *mime;
-    curl_mimepart *part;
+    auto mime = curl_mime_init(m_curl);
+    if (!mime) {
+        return "Failed to initialize mime";
+    }
 
-    mime = curl_mime_init(m_curl);
-
-    part = curl_mime_addpart(mime);
+    auto part = curl_mime_addpart(mime);
+    if (!part) {
+        curl_mime_free(mime);
+        return "Failed to add mime part";
+    }
 
     curl_mime_name(part, "file");
-    curl_mime_filedata(part, filePath.c_str());
+    curl_mime_filedata(part, inputFilePath.c_str());
 
     curl_easy_setopt(m_curl, CURLOPT_MIMEPOST, mime);
+    curl_easy_setopt(m_curl, CURLOPT_URL, m_apiUrl.c_str());
 
-    curl_easy_setopt(m_curl, CURLOPT_URL, (m_apiUrl + "/upload").c_str());
-
-    CURLcode res = curl_easy_perform(m_curl);
-
-    curl_mime_free(mime);
-
-    return {};
-}
-
-/*!
- * \brief Downloads a file from the remote audio API.
- * \param remotePath The remote path of the file on the audio API.
- * \param localPath The local path to save the downloaded file.
- * \return An optional error message. std::nullopt on success, error message on failure.
- */
-std::optional<std::string> AudioAPIHandler::downloadFile(std::string const& remotePath, std::filesystem::path const& localPath)
-{
-    if (!m_curl) {
-        return "cURL not initialized";
+    FILE *fp = fopen(outputFilePath.c_str(), "wb");
+    if (!fp) {
+        perror("fopen");
+        curl_mime_free(mime);
+        return "Failed to open output file";
     }
 
-    curl_easy_setopt(m_curl, CURLOPT_URL, (m_apiUrl + remotePath).c_str());
-    curl_easy_setopt(m_curl, CURLOPT_WRITEFUNCTION, WriteCallback);
-
-    std::ofstream out(localPath);
-    curl_easy_setopt(m_curl, CURLOPT_WRITEDATA, &out);
+    curl_easy_setopt(m_curl, CURLOPT_WRITEFUNCTION, writeCallback);
+    curl_easy_setopt(m_curl, CURLOPT_WRITEDATA, fp);
 
     CURLcode res = curl_easy_perform(m_curl);
+    fclose(fp);
 
-    out.close();
+    if (res != CURLE_OK) {
+        curl_mime_free(mime);
+        return curl_easy_strerror(res);
+    }
 
-    return {};
+    curl_mime_free(mime);
+    return std::nullopt;
 }
 
 /*!
@@ -94,10 +91,7 @@ std::optional<std::string> AudioAPIHandler::downloadFile(std::string const& remo
  * \param userp The user-defined pointer passed to the write callback.
  * \return The total size of data written.
  */
-size_t AudioAPIHandler::WriteCallback(void* contents, size_t size, size_t nmemb, void* userp)
+size_t AudioAPIHandler::writeCallback(void* contents, size_t size, size_t nmemb, void* userp)
 {
-    auto* out = reinterpret_cast<std::ofstream*>(userp);
-    size_t total_size = size * nmemb;
-    out->write(reinterpret_cast<char*>(contents), total_size);
-    return total_size;
+    return fwrite(contents, size, nmemb, static_cast<FILE*>(userp));
 }
