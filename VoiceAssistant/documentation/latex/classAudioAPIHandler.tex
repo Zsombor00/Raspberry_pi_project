@@ -33,10 +33,8 @@ Collaboration diagram for Audio\+APIHandler\+:
 \Hypertarget{classAudioAPIHandler_a8d5fbe406aeba31caacb1f1dd83d03e4}\label{classAudioAPIHandler_a8d5fbe406aeba31caacb1f1dd83d03e4} 
 {\bfseries \texorpdfstring{$\sim$}{\string~}\+Audio\+APIHandler} ()
 \begin{DoxyCompactList}\small\item\em Destructs the \doxylink{classAudioAPIHandler}{Audio\+APIHandler}, ensuring c\+URL is cleaned up. \end{DoxyCompactList}\item 
-std\+::optional$<$ std\+::string $>$ \mbox{\hyperlink{classAudioAPIHandler_a3a377d1339f0ea14847f1157dfb42d55}{upload\+File}} (std\+::filesystem\+::path const \&)
-\begin{DoxyCompactList}\small\item\em Uploads a file to the remote audio API. \end{DoxyCompactList}\item 
-std\+::optional$<$ std\+::string $>$ \mbox{\hyperlink{classAudioAPIHandler_af836da90db847851e94f306667dcb7bb}{download\+File}} (std\+::string const \&, std\+::filesystem\+::path const \&)
-\begin{DoxyCompactList}\small\item\em Downloads a file from the remote audio API. \end{DoxyCompactList}\end{DoxyCompactItemize}
+std\+::optional$<$ std\+::string $>$ \mbox{\hyperlink{classAudioAPIHandler_a6a0ab6ea37844cadd0ec8020849fd7f2}{upload\+File}} (std\+::filesystem\+::path const \&, std\+::filesystem\+::path const \&) const
+\begin{DoxyCompactList}\small\item\em Uploads a file to the remote audio API. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -63,31 +61,11 @@ Constructs an \doxylink{classAudioAPIHandler}{Audio\+APIHandler} with a specifie
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classAudioAPIHandler_af836da90db847851e94f306667dcb7bb}\label{classAudioAPIHandler_af836da90db847851e94f306667dcb7bb} 
-\index{AudioAPIHandler@{AudioAPIHandler}!downloadFile@{downloadFile}}
-\index{downloadFile@{downloadFile}!AudioAPIHandler@{AudioAPIHandler}}
-\doxysubsubsection{\texorpdfstring{downloadFile()}{downloadFile()}}
-{\footnotesize\ttfamily std\+::optional$<$ std\+::string $>$ Audio\+APIHandler\+::download\+File (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{remote\+Path,  }\item[{std\+::filesystem\+::path const \&}]{local\+Path }\end{DoxyParamCaption})}
-
-
-
-Downloads a file from the remote audio API. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em remote\+Path} & The remote path of the file on the audio API. \\
-\hline
-{\em local\+Path} & The local path to save the downloaded file. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-An optional error message. std\+::nullopt on success, error message on failure. 
-\end{DoxyReturn}
-\Hypertarget{classAudioAPIHandler_a3a377d1339f0ea14847f1157dfb42d55}\label{classAudioAPIHandler_a3a377d1339f0ea14847f1157dfb42d55} 
+\Hypertarget{classAudioAPIHandler_a6a0ab6ea37844cadd0ec8020849fd7f2}\label{classAudioAPIHandler_a6a0ab6ea37844cadd0ec8020849fd7f2} 
 \index{AudioAPIHandler@{AudioAPIHandler}!uploadFile@{uploadFile}}
 \index{uploadFile@{uploadFile}!AudioAPIHandler@{AudioAPIHandler}}
 \doxysubsubsection{\texorpdfstring{uploadFile()}{uploadFile()}}
-{\footnotesize\ttfamily std\+::optional$<$ std\+::string $>$ Audio\+APIHandler\+::upload\+File (\begin{DoxyParamCaption}\item[{std\+::filesystem\+::path const \&}]{file\+Path }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily std\+::optional$<$ std\+::string $>$ Audio\+APIHandler\+::upload\+File (\begin{DoxyParamCaption}\item[{std\+::filesystem\+::path const \&}]{input\+File\+Path,  }\item[{std\+::filesystem\+::path const \&}]{output\+File\+Path }\end{DoxyParamCaption}) const}
 
 
 
@@ -95,7 +73,9 @@ Uploads a file to the remote audio API.
 
 
 \begin{DoxyParams}{Parameters}
-{\em file\+Path} & The path of the file to upload. \\
+{\em input\+File\+Path} & The path of the file to upload. \\
+\hline
+{\em output\+File\+Path} & The path of the output file. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

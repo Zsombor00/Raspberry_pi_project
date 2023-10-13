@@ -99,22 +99,20 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_class" href="classAudioAPIHandler.html">AudioAPIHandler</a> &amp; operator=(<a class="code hl_class" href="classAudioAPIHandler.html">AudioAPIHandler</a> &amp;&amp;) = <span class="keyword">delete</span>;</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_function" href="classAudioAPIHandler.html#a8d5fbe406aeba31caacb1f1dd83d03e4">~AudioAPIHandler</a>();</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    std::optional&lt;std::string&gt; <a class="code hl_function" href="classAudioAPIHandler.html#a3a377d1339f0ea14847f1157dfb42d55">uploadFile</a>(std::filesystem::path <span class="keyword">const</span>&amp;);</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    std::optional&lt;std::string&gt; <a class="code hl_function" href="classAudioAPIHandler.html#af836da90db847851e94f306667dcb7bb">downloadFile</a>(std::string <span class="keyword">const</span>&amp;, std::filesystem::path <span class="keyword">const</span>&amp;);</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keyword">static</span> <span class="keywordtype">size_t</span> WriteCallback(<span class="keywordtype">void</span>*, <span class="keywordtype">size_t</span>, <span class="keywordtype">size_t</span>, <span class="keywordtype">void</span>*);</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    std::string m_apiUrl;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    CURL *m_curl;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>};</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    std::optional&lt;std::string&gt; <a class="code hl_function" href="classAudioAPIHandler.html#a6a0ab6ea37844cadd0ec8020849fd7f2">uploadFile</a>(std::filesystem::path <span class="keyword">const</span>&amp;, std::filesystem::path <span class="keyword">const</span>&amp;) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">static</span> <span class="keywordtype">size_t</span> writeCallback(<span class="keywordtype">void</span>*, <span class="keywordtype">size_t</span>, <span class="keywordtype">size_t</span>, <span class="keywordtype">void</span>*);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keyword">const</span> std::string m_apiUrl;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    CURL *m_curl;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>};</div>
 </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclassAudioAPIHandler_html"><div class="ttname"><a href="classAudioAPIHandler.html">AudioAPIHandler</a></div><div class="ttdoc">Handles interaction with a remote audio API using the cURL library.</div><div class="ttdef"><b>Definition</b> AudioAPIHandler.hpp:21</div></div>
-<div class="ttc" id="aclassAudioAPIHandler_html_a3a377d1339f0ea14847f1157dfb42d55"><div class="ttname"><a href="classAudioAPIHandler.html#a3a377d1339f0ea14847f1157dfb42d55">AudioAPIHandler::uploadFile</a></div><div class="ttdeci">std::optional&lt; std::string &gt; uploadFile(std::filesystem::path const &amp;)</div><div class="ttdoc">Uploads a file to the remote audio API.</div><div class="ttdef"><b>Definition</b> AudioAPIHandler.cpp:37</div></div>
+<div class="ttc" id="aclassAudioAPIHandler_html_a6a0ab6ea37844cadd0ec8020849fd7f2"><div class="ttname"><a href="classAudioAPIHandler.html#a6a0ab6ea37844cadd0ec8020849fd7f2">AudioAPIHandler::uploadFile</a></div><div class="ttdeci">std::optional&lt; std::string &gt; uploadFile(std::filesystem::path const &amp;, std::filesystem::path const &amp;) const</div><div class="ttdoc">Uploads a file to the remote audio API.</div><div class="ttdef"><b>Definition</b> AudioAPIHandler.cpp:38</div></div>
 <div class="ttc" id="aclassAudioAPIHandler_html_a8d5fbe406aeba31caacb1f1dd83d03e4"><div class="ttname"><a href="classAudioAPIHandler.html#a8d5fbe406aeba31caacb1f1dd83d03e4">AudioAPIHandler::~AudioAPIHandler</a></div><div class="ttdeci">~AudioAPIHandler()</div><div class="ttdoc">Destructs the AudioAPIHandler, ensuring cURL is cleaned up.</div><div class="ttdef"><b>Definition</b> AudioAPIHandler.cpp:24</div></div>
-<div class="ttc" id="aclassAudioAPIHandler_html_af836da90db847851e94f306667dcb7bb"><div class="ttname"><a href="classAudioAPIHandler.html#af836da90db847851e94f306667dcb7bb">AudioAPIHandler::downloadFile</a></div><div class="ttdeci">std::optional&lt; std::string &gt; downloadFile(std::string const &amp;, std::filesystem::path const &amp;)</div><div class="ttdoc">Downloads a file from the remote audio API.</div><div class="ttdef"><b>Definition</b> AudioAPIHandler.cpp:70</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
