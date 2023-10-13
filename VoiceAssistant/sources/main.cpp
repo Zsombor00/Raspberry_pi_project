@@ -36,7 +36,7 @@ int main(int argc, char *argv[]) {
     constexpr std::string_view fileFormat = "mp3";
     const std::filesystem::path inputFilePath = std::string("./resources/temp/input.") + fileFormat.data();
     const std::filesystem::path outputFilePath = std::string("./resources/temp/output.") + fileFormat.data();
-    const std::string apiUrl = "https://advanced-computer-sciences-proj.vercel.app/api/victor";
+    const std::string apiUrl = "https://advanced-computer-sciences-proj.vercel.app/api/assistant";
 
     try {
         AudioRecorder audioRecorder;
