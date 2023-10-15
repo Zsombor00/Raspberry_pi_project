@@ -37,7 +37,7 @@ void \mbox{\hyperlink{classAudioRecorder_a6b227538e834634146d877a937940e81}{star
 \begin{DoxyCompactList}\small\item\em Starts recording audio. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classAudioRecorder_a51832d8932daa76e8b742606106f5872}{stop\+Recording}} ()
 \begin{DoxyCompactList}\small\item\em Stops recording audio. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classAudioRecorder_a942b76365f1bfec26e5e2642939320c1}{save}} (std\+::string const \&) const
+void \mbox{\hyperlink{classAudioRecorder_a00873a1b7f1d757cefa506619d2c63df}{save}} (std\+::filesystem\+::path const \&) const
 \begin{DoxyCompactList}\small\item\em Saves the recorded audio to a file. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -67,11 +67,11 @@ Constructs an \doxylink{classAudioRecorder}{Audio\+Recorder}.
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classAudioRecorder_a942b76365f1bfec26e5e2642939320c1}\label{classAudioRecorder_a942b76365f1bfec26e5e2642939320c1} 
+\Hypertarget{classAudioRecorder_a00873a1b7f1d757cefa506619d2c63df}\label{classAudioRecorder_a00873a1b7f1d757cefa506619d2c63df} 
 \index{AudioRecorder@{AudioRecorder}!save@{save}}
 \index{save@{save}!AudioRecorder@{AudioRecorder}}
 \doxysubsubsection{\texorpdfstring{save()}{save()}}
-{\footnotesize\ttfamily void Audio\+Recorder\+::save (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{file\+Name }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily void Audio\+Recorder\+::save (\begin{DoxyParamCaption}\item[{std\+::filesystem\+::path const \&}]{file\+Path }\end{DoxyParamCaption}) const}
 
 
 
@@ -79,7 +79,7 @@ Saves the recorded audio to a file.
 
 
 \begin{DoxyParams}{Parameters}
-{\em file\+Name} & The name of the file to save the audio to. \\
+{\em file\+Path} & The name of the file to save the audio to. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{classAudioRecorder_a6b227538e834634146d877a937940e81}\label{classAudioRecorder_a6b227538e834634146d877a937940e81} 

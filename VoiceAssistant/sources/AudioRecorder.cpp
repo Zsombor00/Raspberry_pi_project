@@ -12,11 +12,14 @@
  * \param framesPerBuffer The number of frames per buffer.
  */
 AudioRecorder::AudioRecorder(int sampleRate, int numChannels, int framesPerBuffer)
-    : m_sampleRate{sampleRate}, m_numChannels{numChannels}, m_framesPerBuffer{framesPerBuffer}, m_state{State::Idle}
+    : m_sampleRate{sampleRate}
+    , m_numChannels{numChannels}
+    , m_framesPerBuffer{framesPerBuffer}
+    , m_state{State::Idle}
 {
     auto err = Pa_Initialize();
     if (err != paNoError) {
-        throw std::runtime_error(std::format("Failed to initialize PortAudio: {}", Pa_GetErrorText(err)));
+        throw std::runtime_error(fmt::format("Failed to initialize PortAudio: {}", Pa_GetErrorText(err)));
     }
 }
 
@@ -48,12 +51,12 @@ void AudioRecorder::startRecording()
 
     auto err = Pa_OpenDefaultStream(&m_stream, m_numChannels, 0, paInt16, m_sampleRate, m_framesPerBuffer, nullptr, nullptr);
     if (err != paNoError) {
-        throw std::runtime_error(std::format("Failed to open default audio stream: {}", Pa_GetErrorText(err)));
+        throw std::runtime_error(fmt::format("Failed to open default audio stream: {}", Pa_GetErrorText(err)));
     }
 
     err = Pa_StartStream(m_stream);
     if (err != paNoError) {
-        throw std::runtime_error(std::format("Failed to start audio stream: {}", Pa_GetErrorText(err)));
+        throw std::runtime_error(fmt::format("Failed to start audio stream: {}", Pa_GetErrorText(err)));
     }
 
     m_recordingThread = std::jthread(&AudioRecorder::recordingLoop, this);
@@ -79,34 +82,34 @@ void AudioRecorder::stopRecording()
 
     auto err = Pa_StopStream(m_stream);
     if (err != paNoError) {
-        throw std::runtime_error(std::format("Failed to stop audio stream: {}", Pa_GetErrorText(err)));
+        throw std::runtime_error(fmt::format("Failed to stop audio stream: {}", Pa_GetErrorText(err)));
     }
 
     err = Pa_CloseStream(m_stream);
     if (err != paNoError) {
-        throw std::runtime_error(std::format("Failed to close audio stream: {}", Pa_GetErrorText(err)));
+        throw std::runtime_error(fmt::format("Failed to close audio stream: {}", Pa_GetErrorText(err)));
     }
 }
 
 /*!
  * \brief Saves the recorded audio to a file.
- * \param fileName The name of the file to save the audio to.
+ * \param filePath The name of the file to save the audio to.
  */
-void AudioRecorder::save(std::string const& fileName) const
+void AudioRecorder::save(std::filesystem::path const& filePath) const
 {
-    FileFormat format = determineFileFormat(fileName);
+    FileFormat format = determineFileFormat(filePath);
     switch (format) {
     case FileFormat::WAV:
     case FileFormat::FLAC:
     case FileFormat::OGG:
-        saveAsWavFlacOgg(fileName, format);
+        saveAsWavFlacOgg(filePath, format);
         break;
     case FileFormat::MP3:
-        saveAsMp3(fileName);
+        saveAsMp3(filePath);
         break;
     case FileFormat::UNKNOWN:
     default:
-        throw std::runtime_error(std::format("Unsupported file format: {}", fileName));
+        throw std::runtime_error(fmt::format("Unsupported file format: {}", filePath.string()));
     }
 }
 
@@ -131,7 +134,7 @@ void AudioRecorder::recordingLoop()
         std::vector<short> buffer(m_framesPerBuffer * m_numChannels);
         auto read = Pa_ReadStream(m_stream, buffer.data(), m_framesPerBuffer);
         if (read != paNoError) {
-            throw std::runtime_error(std::format("Error during audio stream read: {}", Pa_GetErrorText(read)));
+            throw std::runtime_error(fmt::format("Error during audio stream read: {}", Pa_GetErrorText(read)));
         }
 
         m_samples.insert(m_samples.end(), buffer.begin(), buffer.end());
@@ -140,12 +143,12 @@ void AudioRecorder::recordingLoop()
 
 /*!
  * \brief Determines the file format based on the file extension.
- * \param fileName The name of the file.
+ * \param filePath The name of the file.
  * \return The determined FileFormat.
  */
-[[nodiscard]] AudioRecorder::FileFormat AudioRecorder::determineFileFormat(std::string const& fileName) const
+[[nodiscard]] AudioRecorder::FileFormat AudioRecorder::determineFileFormat(std::filesystem::path const& filePath) const
 {
-    std::string extension = std::filesystem::path(fileName).extension().string();
+    std::string extension = std::filesystem::path(filePath).extension().string();
     if (extension == ".wav") return FileFormat::WAV;
     if (extension == ".flac") return FileFormat::FLAC;
     if (extension == ".ogg") return FileFormat::OGG;
@@ -155,10 +158,10 @@ void AudioRecorder::recordingLoop()
 
 /*!
  * \brief Saves the recorded audio to a file in WAV, FLAC, or OGG format.
- * \param fileName The name of the file to save the audio to.
+ * \param filePath The name of the file to save the audio to.
  * \param format The file format to save the audio in.
  */
-void AudioRecorder::saveAsWavFlacOgg(std::string const& fileName, FileFormat format) const
+void AudioRecorder::saveAsWavFlacOgg(std::filesystem::path const& filePath, FileFormat format) const
 {
     // Mapping file extensions to SFML format constants
     std::map<std::string, int> formatMap = {
@@ -167,7 +170,7 @@ void AudioRecorder::saveAsWavFlacOgg(std::string const& fileName, FileFormat for
         { ".ogg", SF_FORMAT_OGG },
     };
 
-    std::string extension = fileName.substr(fileName.find_last_of('.'));
+    std::string extension = filePath.extension().string();
     auto formatIter = formatMap.find(extension);
     if (formatIter == formatMap.end()) {
         throw std::runtime_error("Unsupported file format");
@@ -178,9 +181,9 @@ void AudioRecorder::saveAsWavFlacOgg(std::string const& fileName, FileFormat for
     sfInfo.channels = m_numChannels;
     sfInfo.format = formatIter->second | SF_FORMAT_PCM_16;
 
-    std::unique_ptr<SNDFILE, decltype(&sf_close)> outfile(sf_open(fileName.c_str(), SFM_WRITE, &sfInfo), &sf_close);
+    std::unique_ptr<SNDFILE, decltype(&sf_close)> outfile(sf_open(filePath.c_str(), SFM_WRITE, &sfInfo), &sf_close);
     if (!outfile) {
-        throw std::runtime_error(std::format("Failed to open file for writing: {}", fileName));
+        throw std::runtime_error(fmt::format("Failed to open file for writing: {}", filePath.string()));
     }
 
     sf_write_short(outfile.get(), m_samples.data(), m_samples.size());
@@ -188,17 +191,17 @@ void AudioRecorder::saveAsWavFlacOgg(std::string const& fileName, FileFormat for
 
 /*!
  * \brief Saves the recorded audio to a file in MP3 format.
- * \param fileName The name of the file to save the audio to.
+ * \param filePath The name of the file to save the audio to.
  */
-void AudioRecorder::saveAsMp3(std::string const& fileName) const
+void AudioRecorder::saveAsMp3(std::filesystem::path const& filePath) const
 {
     lame_global_flags *gfp = lame_init();
     if (!gfp) {
         throw std::runtime_error("Failed to initialize LAME encoder");
     }
 
-    lame_set_in_samplerate(gfp, m_sampleRate);  // Use class member for sample rate
-    lame_set_num_channels(gfp, m_numChannels);  // Set number of channels
+    lame_set_in_samplerate(gfp, m_sampleRate);
+    lame_set_num_channels(gfp, m_numChannels);
     lame_set_VBR(gfp, vbr_default);
     lame_init_params(gfp);
 
@@ -227,7 +230,6 @@ void AudioRecorder::saveAsMp3(std::string const& fileName) const
         throw std::runtime_error("Error encoding MP3 data");
     }
 
-    // Handle the flush of the encoder to get any remaining data
     int flushSize = lame_encode_flush(gfp, mp3Buffer.get() + mp3Size, MP3_BUFFER_SIZE - mp3Size);
     if (flushSize < 0) {
         lame_close(gfp);
@@ -235,7 +237,7 @@ void AudioRecorder::saveAsMp3(std::string const& fileName) const
     }
     mp3Size += flushSize;
 
-    FILE *mp3File = fopen(fileName.c_str(), "wb");
+    FILE *mp3File = fopen(filePath.c_str(), "wb");
     if (!mp3File) {
         lame_close(gfp);
         throw std::runtime_error("Error opening MP3 file for writing");

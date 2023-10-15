@@ -86,7 +86,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define AUDIOREADER_HPP</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;libraries.hpp&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="libraries_8hpp.html">libraries.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
 <div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classAudioReader.html">   16</a></span><span class="keyword">class </span><a class="code hl_class" href="classAudioReader.html">AudioReader</a></div>
@@ -99,7 +99,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_class" href="classAudioReader.html">AudioReader</a> &amp; operator=(<a class="code hl_class" href="classAudioReader.html">AudioReader</a> &amp;&amp;) = <span class="keyword">delete</span>;</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_function" href="classAudioReader.html#af959722d3213817153a7b43be4719266">~AudioReader</a>();</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classAudioReader.html#ae35d179ccb7d29de29150a095cfc9b93">play</a>(std::string <span class="keyword">const</span>&amp;);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classAudioReader.html#adbf02bf7ff58442a8839d22897458c76">play</a>(std::filesystem::path <span class="keyword">const</span>&amp;);</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">struct </span>MixMusicDeleter {</div>
@@ -107,15 +107,15 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    };</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">using </span>MixMusicPtr = std::unique_ptr&lt;Mix_Music, MixMusicDeleter&gt;;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>};</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>};</div>
 </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclassAudioReader_html"><div class="ttname"><a href="classAudioReader.html">AudioReader</a></div><div class="ttdoc">Handles audio playing using the SDL2 library.</div><div class="ttdef"><b>Definition</b> AudioReader.hpp:17</div></div>
 <div class="ttc" id="aclassAudioReader_html_a97cf78ec0007f4738433c5a643aab91a"><div class="ttname"><a href="classAudioReader.html#a97cf78ec0007f4738433c5a643aab91a">AudioReader::AudioReader</a></div><div class="ttdeci">AudioReader()</div><div class="ttdoc">Constructs an AudioReader.</div><div class="ttdef"><b>Definition</b> AudioReader.cpp:14</div></div>
-<div class="ttc" id="aclassAudioReader_html_ae35d179ccb7d29de29150a095cfc9b93"><div class="ttname"><a href="classAudioReader.html#ae35d179ccb7d29de29150a095cfc9b93">AudioReader::play</a></div><div class="ttdeci">void play(std::string const &amp;)</div><div class="ttdoc">Plays an audio file.</div><div class="ttdef"><b>Definition</b> AudioReader.cpp:43</div></div>
-<div class="ttc" id="aclassAudioReader_html_af959722d3213817153a7b43be4719266"><div class="ttname"><a href="classAudioReader.html#af959722d3213817153a7b43be4719266">AudioReader::~AudioReader</a></div><div class="ttdeci">~AudioReader()</div><div class="ttdoc">Destructs the AudioReader.</div><div class="ttdef"><b>Definition</b> AudioReader.cpp:30</div></div>
+<div class="ttc" id="aclassAudioReader_html_adbf02bf7ff58442a8839d22897458c76"><div class="ttname"><a href="classAudioReader.html#adbf02bf7ff58442a8839d22897458c76">AudioReader::play</a></div><div class="ttdeci">void play(std::filesystem::path const &amp;)</div><div class="ttdoc">Plays an audio file.</div><div class="ttdef"><b>Definition</b> AudioReader.cpp:45</div></div>
+<div class="ttc" id="aclassAudioReader_html_af959722d3213817153a7b43be4719266"><div class="ttname"><a href="classAudioReader.html#af959722d3213817153a7b43be4719266">AudioReader::~AudioReader</a></div><div class="ttdeci">~AudioReader()</div><div class="ttdoc">Destructs the AudioReader.</div><div class="ttdef"><b>Definition</b> AudioReader.cpp:31</div></div>
+<div class="ttc" id="alibraries_8hpp_html"><div class="ttname"><a href="libraries_8hpp.html">libraries.hpp</a></div><div class="ttdoc">Includes standard and third-party libraries required for the project.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

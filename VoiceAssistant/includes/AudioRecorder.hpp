@@ -1,6 +1,6 @@
 /*!
  * \file AudioRecorder.hpp
- * \brief Header file for the AudioRecorder class.
+ * \brief Declaration of the AudioRecorder class.
  */
 
 #ifndef AUDIORECORDER_HPP
@@ -25,10 +25,9 @@ public:
 
     void startRecording();
     void stopRecording();
-    void save(std::string const&) const;
+    void save(std::filesystem::path const&) const;
 
 private:
-    // Default settings for the audio capture
     inline static constexpr int DEFAULT_SAMPLE_RATE = 44100;
     inline static constexpr int DEFAULT_NUM_CHANNELS = 1;
     inline static constexpr int DEFAULT_FRAMES_PER_BUFFER = 512;
@@ -48,9 +47,9 @@ private:
 
     bool isRecording() const noexcept;
     void recordingLoop();
-    [[nodiscard]] FileFormat determineFileFormat(std::string const&) const;
-    void saveAsWavFlacOgg(std::string const&, FileFormat) const;
-    void saveAsMp3(std::string const&) const;
+    [[nodiscard]] FileFormat determineFileFormat(std::filesystem::path const&) const;
+    void saveAsWavFlacOgg(std::filesystem::path const&, FileFormat) const;
+    void saveAsMp3(std::filesystem::path const&) const;
 
     int m_sampleRate;
     int m_numChannels;

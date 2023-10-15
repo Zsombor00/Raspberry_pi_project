@@ -113,9 +113,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a51832d8932daa76e8b742606106f5872" id="r_a51832d8932daa76e8b742606106f5872"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioRecorder.html#a51832d8932daa76e8b742606106f5872">stopRecording</a> ()</td></tr>
 <tr class="memdesc:a51832d8932daa76e8b742606106f5872"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops recording audio.  <br /></td></tr>
 <tr class="separator:a51832d8932daa76e8b742606106f5872"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a942b76365f1bfec26e5e2642939320c1" id="r_a942b76365f1bfec26e5e2642939320c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioRecorder.html#a942b76365f1bfec26e5e2642939320c1">save</a> (std::string const &amp;) const</td></tr>
-<tr class="memdesc:a942b76365f1bfec26e5e2642939320c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the recorded audio to a file.  <br /></td></tr>
-<tr class="separator:a942b76365f1bfec26e5e2642939320c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00873a1b7f1d757cefa506619d2c63df" id="r_a00873a1b7f1d757cefa506619d2c63df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioRecorder.html#a00873a1b7f1d757cefa506619d2c63df">save</a> (std::filesystem::path const &amp;) const</td></tr>
+<tr class="memdesc:a00873a1b7f1d757cefa506619d2c63df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the recorded audio to a file.  <br /></td></tr>
+<tr class="separator:a00873a1b7f1d757cefa506619d2c63df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Handles audio recording using the PortAudio library. </p>
@@ -173,8 +173,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a942b76365f1bfec26e5e2642939320c1" name="a942b76365f1bfec26e5e2642939320c1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a942b76365f1bfec26e5e2642939320c1">&#9670;&#160;</a></span>save()</h2>
+<a id="a00873a1b7f1d757cefa506619d2c63df" name="a00873a1b7f1d757cefa506619d2c63df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00873a1b7f1d757cefa506619d2c63df">&#9670;&#160;</a></span>save()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -182,8 +182,8 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void AudioRecorder::save </td>
           <td>(</td>
-          <td class="paramtype">std::string const &amp;&#160;</td>
-          <td class="paramname"><em>fileName</em></td><td>)</td>
+          <td class="paramtype">std::filesystem::path const &amp;&#160;</td>
+          <td class="paramname"><em>filePath</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -192,7 +192,7 @@ Public Member Functions</h2></td></tr>
 <p>Saves the recorded audio to a file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fileName</td><td>The name of the file to save the audio to. </td></tr>
+    <tr><td class="paramname">filePath</td><td>The name of the file to save the audio to. </td></tr>
   </table>
   </dd>
 </dl>

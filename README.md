@@ -1,62 +1,46 @@
 # Voice Assistant
 
-Simple overview of use/purpose.
+This project, developed as part of the Advanced Computer Science Studies in Sweden course at Uppsala University (Group 18), entails the creation of an intelligent voice assistant based on the ChatGPT platform. The members of Group 18 include Victor Delattre, Alexandru Gurita, Zsombor Kotan, and Zuwei Ye.
 
-## Description
+## Project Overview
 
-An in-depth paragraph about your project and overview of use.
+In an endeavor to design and develop a portable and energy-sustainable voice assistant, we elected the Raspberry Pi Model 3B as our platform of choice, given its suitability for embedded systems. The core functionality of our Voice Assistant pivots on the interaction between the user and the device, wherein the user's voice input is processed and responded to via ChatGPT's voice output. This interaction is facilitated through a structured system comprising the Raspberry Pi, an intermediary Node server, and cloud computing technologies.
+
+The Raspberry Pi, programmed using C++, handles sound recording, data transmission to the remote server, receipt of responses, and the rendering of audio output. On the other hand, the Node server, tasked with computing duties, orchestrates API calls to external servers, data assembly, and the transmission of structured data back to the Raspberry Pi. By leveraging mature cloud computing technologies, specifically ChatGPT Whisper, we've ensured a lightweight design and implementation, thereby optimizing the transcription and synthesis of voice data.
+
+This repository hosts the core C++ code vital for the operation of the Voice Assistant system on the Raspberry Pi.
 
 ## Getting Started
 
 ### Dependencies
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+* Ensure you have Standard C++20 installed on your machine.
+
+* Install the necessary third-party libraries by executing the following command:
+```bash
+sudo apt-get update -y && sudo apt-get upgrade -y && sudo apt-get install libcurl4-openssl-dev libmp3lame-dev portaudio19-dev libsdl2-dev libsdl2-mixer-dev libsndfile1-dev
+```
 
 ### Installing
-
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+```bash
+git clone https://github.com/Zsombor00/Raspberry_pi_project.git
+cd ./Raspberry_pi_project/VoiceAssistant/
+bash ./scripts/launch_unix.sh
+```
 
 ### Executing program
 
-* How to run the program
-* Step-by-step bullets
-```
-code blocks for commands
-```
-
-## Help
-
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
+* You can launch the program via the terminal using the following command:
+```bash
+./build/VoiceAssistant
 ```
 
-## Authors
+* Alternatively, create a systemd service to initiate the program on system startup.
 
-Contributors names and contact info
+## Contributors
 
-ex. Dominique Pizzie
-ex. [@DomPizzie](https://twitter.com/dompizzie)
-
-## Version History
-
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
-    * Initial Release
+* Victor Delattre [@VictorDelattre](https://github.com/VictorDelattre)
 
 ## License
 
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
-
-## Acknowledgments
-
-Inspiration, code snippets, etc.
-* [awesome-readme](https://github.com/matiassingers/awesome-readme)
-* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-* [dbader](https://github.com/dbader/readme-template)
-* [zenorocha](https://gist.github.com/zenorocha/4526327)
-* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
