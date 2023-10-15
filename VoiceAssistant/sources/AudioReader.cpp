@@ -14,12 +14,12 @@
 AudioReader::AudioReader()
 {
     if (SDL_Init(SDL_INIT_AUDIO) != 0) {
-        throw std::runtime_error(std::format("SDL2 error: {}", SDL_GetError()));
+        throw std::runtime_error(fmt::format("SDL2 error: {}", SDL_GetError()));
     }
 
     if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) {
         SDL_Quit();
-        throw std::runtime_error(std::format("SDL_mixer error: {}", Mix_GetError()));
+        throw std::runtime_error(fmt::format("SDL_mixer error: {}", Mix_GetError()));
     }
 }
 
@@ -46,11 +46,11 @@ void AudioReader::play(std::filesystem::path const& filePath)
 {
     MixMusicPtr music(Mix_LoadMUS(filePath.c_str()));
     if (!music) {
-        throw std::runtime_error(std::format("SDL_mixer error: {}", Mix_GetError()));
+        throw std::runtime_error(fmt::format("SDL_mixer error: {}", Mix_GetError()));
     }
 
     if (Mix_PlayMusic(music.get(), 1) == -1) {
-        throw std::runtime_error(std::format("SDL_mixer error: {}", Mix_GetError()));
+        throw std::runtime_error(fmt::format("SDL_mixer error: {}", Mix_GetError()));
     }
 
     while (Mix_PlayingMusic()) {

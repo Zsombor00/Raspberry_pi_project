@@ -20,7 +20,7 @@ add_executable(${PROJECT_NAME}
 )
 
 #Links
-target_link_libraries(${PROJECT_NAME} PRIVATE portaudio sndfile mp3lame SDL2 SDL2_mixer curl)
+target_link_libraries(${PROJECT_NAME} PRIVATE portaudio sndfile mp3lame SDL2 SDL2_mixer curl fmt)
 
 # Includes
 target_include_directories(${PROJECT_NAME} PRIVATE includes)

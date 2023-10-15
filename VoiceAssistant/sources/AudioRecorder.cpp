@@ -19,7 +19,7 @@ AudioRecorder::AudioRecorder(int sampleRate, int numChannels, int framesPerBuffe
 {
     auto err = Pa_Initialize();
     if (err != paNoError) {
-        throw std::runtime_error(std::format("Failed to initialize PortAudio: {}", Pa_GetErrorText(err)));
+        throw std::runtime_error(fmt::format("Failed to initialize PortAudio: {}", Pa_GetErrorText(err)));
     }
 }
 
@@ -51,12 +51,12 @@ void AudioRecorder::startRecording()
 
     auto err = Pa_OpenDefaultStream(&m_stream, m_numChannels, 0, paInt16, m_sampleRate, m_framesPerBuffer, nullptr, nullptr);
     if (err != paNoError) {
-        throw std::runtime_error(std::format("Failed to open default audio stream: {}", Pa_GetErrorText(err)));
+        throw std::runtime_error(fmt::format("Failed to open default audio stream: {}", Pa_GetErrorText(err)));
     }
 
     err = Pa_StartStream(m_stream);
     if (err != paNoError) {
-        throw std::runtime_error(std::format("Failed to start audio stream: {}", Pa_GetErrorText(err)));
+        throw std::runtime_error(fmt::format("Failed to start audio stream: {}", Pa_GetErrorText(err)));
     }
 
     m_recordingThread = std::jthread(&AudioRecorder::recordingLoop, this);
@@ -82,12 +82,12 @@ void AudioRecorder::stopRecording()
 
     auto err = Pa_StopStream(m_stream);
     if (err != paNoError) {
-        throw std::runtime_error(std::format("Failed to stop audio stream: {}", Pa_GetErrorText(err)));
+        throw std::runtime_error(fmt::format("Failed to stop audio stream: {}", Pa_GetErrorText(err)));
     }
 
     err = Pa_CloseStream(m_stream);
     if (err != paNoError) {
-        throw std::runtime_error(std::format("Failed to close audio stream: {}", Pa_GetErrorText(err)));
+        throw std::runtime_error(fmt::format("Failed to close audio stream: {}", Pa_GetErrorText(err)));
     }
 }
 
@@ -109,7 +109,7 @@ void AudioRecorder::save(std::filesystem::path const& filePath) const
         break;
     case FileFormat::UNKNOWN:
     default:
-        throw std::runtime_error(std::format("Unsupported file format: {}", filePath.string()));
+        throw std::runtime_error(fmt::format("Unsupported file format: {}", filePath.string()));
     }
 }
 
@@ -134,7 +134,7 @@ void AudioRecorder::recordingLoop()
         std::vector<short> buffer(m_framesPerBuffer * m_numChannels);
         auto read = Pa_ReadStream(m_stream, buffer.data(), m_framesPerBuffer);
         if (read != paNoError) {
-            throw std::runtime_error(std::format("Error during audio stream read: {}", Pa_GetErrorText(read)));
+            throw std::runtime_error(fmt::format("Error during audio stream read: {}", Pa_GetErrorText(read)));
         }
 
         m_samples.insert(m_samples.end(), buffer.begin(), buffer.end());
@@ -183,7 +183,7 @@ void AudioRecorder::saveAsWavFlacOgg(std::filesystem::path const& filePath, File
 
     std::unique_ptr<SNDFILE, decltype(&sf_close)> outfile(sf_open(filePath.c_str(), SFM_WRITE, &sfInfo), &sf_close);
     if (!outfile) {
-        throw std::runtime_error(std::format("Failed to open file for writing: {}", filePath.string()));
+        throw std::runtime_error(fmt::format("Failed to open file for writing: {}", filePath.string()));
     }
 
     sf_write_short(outfile.get(), m_samples.data(), m_samples.size());

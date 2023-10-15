@@ -2,5 +2,5 @@
 build/*
 build*/*
 
-# Sound files
+# Temp files
 resources/temp/*
