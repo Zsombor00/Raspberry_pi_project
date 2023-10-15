@@ -10,8 +10,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 # Sources
-file(GLOB_RECURSE SOURCES sources/*.cpp     sources/*/*.cpp     sources/*/*/*.cpp)
-file(GLOB_RECURSE HEADERS includes/*.hpp    includes/*/*.hpp    includes/*/*/*.hpp)
+file(GLOB_RECURSE SOURCES sources/*.cpp)
+file(GLOB_RECURSE HEADERS includes/*.hpp)
 
 # Executable
 add_executable(${PROJECT_NAME}

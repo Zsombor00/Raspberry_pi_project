@@ -86,7 +86,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define AUDIORECORDER_HPP</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;libraries.hpp&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="libraries_8hpp.html">libraries.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
 <div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classAudioRecorder.html">   16</a></span><span class="keyword">class </span><a class="code hl_class" href="classAudioRecorder.html">AudioRecorder</a></div>
@@ -104,46 +104,46 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classAudioRecorder.html#a00873a1b7f1d757cefa506619d2c63df">save</a>(std::filesystem::path <span class="keyword">const</span>&amp;) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="comment">// Default settings for the audio capture</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> DEFAULT_SAMPLE_RATE = 44100;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> DEFAULT_NUM_CHANNELS = 1;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> DEFAULT_FRAMES_PER_BUFFER = 512;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keyword">enum class</span> State {</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        Idle,</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        Recording</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    };</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keyword">enum class</span> FileFormat {</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        UNKNOWN,</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        WAV,</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        FLAC,</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        OGG,</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        MP3</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    };</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">bool</span> isRecording() <span class="keyword">const</span> <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">void</span> recordingLoop();</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    [[nodiscard]] FileFormat determineFileFormat(std::filesystem::path <span class="keyword">const</span>&amp;) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordtype">void</span> saveAsWavFlacOgg(std::filesystem::path <span class="keyword">const</span>&amp;, FileFormat) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordtype">void</span> saveAsMp3(std::filesystem::path <span class="keyword">const</span>&amp;) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">int</span> m_sampleRate;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">int</span> m_numChannels;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordtype">int</span> m_framesPerBuffer;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    PaStream *m_stream;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    State m_state;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    std::vector&lt;short&gt; m_samples;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    std::jthread m_recordingThread;</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>};</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> DEFAULT_SAMPLE_RATE = 44100;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> DEFAULT_NUM_CHANNELS = 1;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> DEFAULT_FRAMES_PER_BUFFER = 512;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keyword">enum class</span> State {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        Idle,</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        Recording</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    };</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keyword">enum class</span> FileFormat {</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        UNKNOWN,</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        WAV,</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        FLAC,</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        OGG,</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        MP3</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    };</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordtype">bool</span> isRecording() <span class="keyword">const</span> <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">void</span> recordingLoop();</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    [[nodiscard]] FileFormat determineFileFormat(std::filesystem::path <span class="keyword">const</span>&amp;) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordtype">void</span> saveAsWavFlacOgg(std::filesystem::path <span class="keyword">const</span>&amp;, FileFormat) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordtype">void</span> saveAsMp3(std::filesystem::path <span class="keyword">const</span>&amp;) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">int</span> m_sampleRate;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">int</span> m_numChannels;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">int</span> m_framesPerBuffer;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    PaStream *m_stream;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    State m_state;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    std::vector&lt;short&gt; m_samples;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    std::jthread m_recordingThread;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>};</div>
 </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclassAudioRecorder_html"><div class="ttname"><a href="classAudioRecorder.html">AudioRecorder</a></div><div class="ttdoc">Handles audio recording using the PortAudio library.</div><div class="ttdef"><b>Definition</b> AudioRecorder.hpp:17</div></div>
 <div class="ttc" id="aclassAudioRecorder_html_a00873a1b7f1d757cefa506619d2c63df"><div class="ttname"><a href="classAudioRecorder.html#a00873a1b7f1d757cefa506619d2c63df">AudioRecorder::save</a></div><div class="ttdeci">void save(std::filesystem::path const &amp;) const</div><div class="ttdoc">Saves the recorded audio to a file.</div><div class="ttdef"><b>Definition</b> AudioRecorder.cpp:98</div></div>
 <div class="ttc" id="aclassAudioRecorder_html_a51832d8932daa76e8b742606106f5872"><div class="ttname"><a href="classAudioRecorder.html#a51832d8932daa76e8b742606106f5872">AudioRecorder::stopRecording</a></div><div class="ttdeci">void stopRecording()</div><div class="ttdoc">Stops recording audio.</div><div class="ttdef"><b>Definition</b> AudioRecorder.cpp:71</div></div>
 <div class="ttc" id="aclassAudioRecorder_html_a6b227538e834634146d877a937940e81"><div class="ttname"><a href="classAudioRecorder.html#a6b227538e834634146d877a937940e81">AudioRecorder::startRecording</a></div><div class="ttdeci">void startRecording()</div><div class="ttdoc">Starts recording audio.</div><div class="ttdef"><b>Definition</b> AudioRecorder.cpp:43</div></div>
 <div class="ttc" id="aclassAudioRecorder_html_ad5a2d69da1c068d8aab68365e5b9208a"><div class="ttname"><a href="classAudioRecorder.html#ad5a2d69da1c068d8aab68365e5b9208a">AudioRecorder::~AudioRecorder</a></div><div class="ttdeci">~AudioRecorder()</div><div class="ttdoc">Destructs the AudioRecorder, ensuring recording is stopped.</div><div class="ttdef"><b>Definition</b> AudioRecorder.cpp:29</div></div>
+<div class="ttc" id="alibraries_8hpp_html"><div class="ttname"><a href="libraries_8hpp.html">libraries.hpp</a></div><div class="ttdoc">Includes standard and third-party libraries required for the project.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

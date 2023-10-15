@@ -200,8 +200,8 @@ void AudioRecorder::saveAsMp3(std::filesystem::path const& filePath) const
         throw std::runtime_error("Failed to initialize LAME encoder");
     }
 
-    lame_set_in_samplerate(gfp, m_sampleRate);  // Use class member for sample rate
-    lame_set_num_channels(gfp, m_numChannels);  // Set number of channels
+    lame_set_in_samplerate(gfp, m_sampleRate);
+    lame_set_num_channels(gfp, m_numChannels);
     lame_set_VBR(gfp, vbr_default);
     lame_init_params(gfp);
 
@@ -230,7 +230,6 @@ void AudioRecorder::saveAsMp3(std::filesystem::path const& filePath) const
         throw std::runtime_error("Error encoding MP3 data");
     }
 
-    // Handle the flush of the encoder to get any remaining data
     int flushSize = lame_encode_flush(gfp, mp3Buffer.get() + mp3Size, MP3_BUFFER_SIZE - mp3Size);
     if (flushSize < 0) {
         lame_close(gfp);

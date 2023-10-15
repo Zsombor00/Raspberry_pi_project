@@ -1,0 +1,76 @@
+\doxysection{sources/main.cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{sources/main.cpp@{sources/main.cpp}}
+
+
+Main entry point for the audio interaction program.  
+
+
+{\ttfamily \#include "{}libraries.\+hpp"{}}\newline
+{\ttfamily \#include "{}Audio\+APIHandler.\+hpp"{}}\newline
+{\ttfamily \#include "{}Audio\+Recorder.\+hpp"{}}\newline
+{\ttfamily \#include "{}Audio\+Reader.\+hpp"{}}\newline
+Include dependency graph for main.\+cpp\+:
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8cpp_afb2df1c9b96698c869af15739883b448}{interact\+With\+User}} (\mbox{\hyperlink{classAudioRecorder}{Audio\+Recorder}} \&audio\+Recorder, \mbox{\hyperlink{classAudioAPIHandler}{Audio\+APIHandler}} \&audio\+APIHandler, \mbox{\hyperlink{classAudioReader}{Audio\+Reader}} \&audio\+Reader, const std\+::filesystem\+::path \&welcome\+File\+Path, const std\+::filesystem\+::path \&input\+File\+Path, const std\+::filesystem\+::path \&output\+File\+Path, const std\+::string \&api\+Url)
+\begin{DoxyCompactList}\small\item\em Handles user interaction, audio recording, API communication, and audio playback. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Entry point of the program. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main entry point for the audio interaction program. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_afb2df1c9b96698c869af15739883b448}\label{main_8cpp_afb2df1c9b96698c869af15739883b448} 
+\index{main.cpp@{main.cpp}!interactWithUser@{interactWithUser}}
+\index{interactWithUser@{interactWithUser}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{interactWithUser()}{interactWithUser()}}
+{\footnotesize\ttfamily void interact\+With\+User (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAudioRecorder}{Audio\+Recorder}} \&}]{audio\+Recorder,  }\item[{\mbox{\hyperlink{classAudioAPIHandler}{Audio\+APIHandler}} \&}]{audio\+APIHandler,  }\item[{\mbox{\hyperlink{classAudioReader}{Audio\+Reader}} \&}]{audio\+Reader,  }\item[{const std\+::filesystem\+::path \&}]{welcome\+File\+Path,  }\item[{const std\+::filesystem\+::path \&}]{input\+File\+Path,  }\item[{const std\+::filesystem\+::path \&}]{output\+File\+Path,  }\item[{const std\+::string \&}]{api\+Url }\end{DoxyParamCaption})}
+
+
+
+Handles user interaction, audio recording, API communication, and audio playback. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em audio\+Recorder} & An object to handle audio recording. \\
+\hline
+{\em audio\+APIHandler} & An object to handle communication with the audio processing API. \\
+\hline
+{\em audio\+Reader} & An object to handle audio playback. \\
+\hline
+{\em welcome\+File\+Path} & The file path to the welcome audio file. \\
+\hline
+{\em input\+File\+Path} & The file path to save the recorded audio. \\
+\hline
+{\em output\+File\+Path} & The file path to save the API\textquotesingle{}s audio response. \\
+\hline
+{\em api\+Url} & The URL of the audio processing API.\\
+\hline
+\end{DoxyParams}
+This function guides the user through the process of recording an audio snippet, sends the recorded audio to a specified API, and plays back the received audio response. \Hypertarget{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Entry point of the program. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & The number of command line arguments. \\
+\hline
+{\em argv} & The command line arguments. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, or an error code on failure.
+\end{DoxyReturn}
+This function initializes objects required for audio recording, API communication, and audio playback. It then calls {\ttfamily interact\+With\+User} to guide the user through the audio recording and playback process. 

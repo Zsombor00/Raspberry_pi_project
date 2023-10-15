@@ -28,7 +28,6 @@ public:
     void save(std::filesystem::path const&) const;
 
 private:
-    // Default settings for the audio capture
     inline static constexpr int DEFAULT_SAMPLE_RATE = 44100;
     inline static constexpr int DEFAULT_NUM_CHANNELS = 1;
     inline static constexpr int DEFAULT_FRAMES_PER_BUFFER = 512;

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Voice Assistant: includes Directory Reference</title>
+<title>Voice Assistant: includes/libraries.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -73,26 +73,42 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="headertitle"><div class="title">includes Directory Reference</div></div>
+  <div class="headertitle"><div class="title">libraries.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
-Files</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top"><a href="AudioAPIHandler_8hpp_source.html"><span class="icondoc"></span></a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="AudioAPIHandler_8hpp.html">AudioAPIHandler.hpp</a></td></tr>
-<tr class="memdesc:AudioAPIHandler_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declaration of the <a class="el" href="classAudioAPIHandler.html" title="Handles interaction with a remote audio API using the cURL library.">AudioAPIHandler</a> class. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top"><a href="AudioReader_8hpp_source.html"><span class="icondoc"></span></a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="AudioReader_8hpp.html">AudioReader.hpp</a></td></tr>
-<tr class="memdesc:AudioReader_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declaration of the <a class="el" href="classAudioReader.html" title="Handles audio playing using the SDL2 library.">AudioReader</a> class. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top"><a href="AudioRecorder_8hpp_source.html"><span class="icondoc"></span></a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="AudioRecorder_8hpp.html">AudioRecorder.hpp</a></td></tr>
-<tr class="memdesc:AudioRecorder_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declaration of the <a class="el" href="classAudioRecorder.html" title="Handles audio recording using the PortAudio library.">AudioRecorder</a> class. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top"><a href="libraries_8hpp_source.html"><span class="icondoc"></span></a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="libraries_8hpp.html">libraries.hpp</a></td></tr>
-<tr class="memdesc:libraries_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Includes standard and third-party libraries required for the project. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-</div><!-- contents -->
+
+<p>Includes standard and third-party libraries required for the project.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;curl/curl.h&gt;</code><br />
+<code>#include &lt;lame/lame.h&gt;</code><br />
+<code>#include &lt;portaudio.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_mixer.h&gt;</code><br />
+<code>#include &lt;sndfile.h&gt;</code><br />
+<code>#include &lt;filesystem&gt;</code><br />
+<code>#include &lt;fmt/core.h&gt;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;map&gt;</code><br />
+<code>#include &lt;optional&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;thread&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for libraries.hpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="libraries_8hpp__incl.png" border="0" usemap="#aincludes_2libraries_8hpp" alt=""/></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="libraries_8hpp__dep__incl.png" border="0" usemap="#aincludes_2libraries_8hppdep" alt=""/></div>
+</div>
+</div>
+<p><a href="libraries_8hpp_source.html">Go to the source code of this file.</a></p>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Includes standard and third-party libraries required for the project. </p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
